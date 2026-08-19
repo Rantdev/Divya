@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divya Gupta — AI/ML Enthusiast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOP NAVIGATION ============ -->
+<header class="site-nav" id="top">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Divya Gupta</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item nav-dropdown" id="projectsDropdown">
+        <button class="nav-link dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+          Major Projects <span class="chevron">▾</span>
+        </button>
+        <div class="dropdown-menu">
+          
+          <a href="agentic-research.html" target="_blank" rel="noopener">Agentic Research Intelligence System</a>
+          
+          <a href="zx-bank.html" target="_blank" rel="noopener">ZX Bank RAG System</a>
+          
+          <a href="https://claude.ai" target="_blank" rel="noopener">Machine Learning Project</a>
+        </div>
+      </div>
+
+      <a href="#minor-projects" class="nav-link nav-scroll">Minor project</a>
+      <a href="#beyond-code" class="nav-link nav-scroll">Beyond Code</a>
+      <a href="#connect" class="nav-link nav-cta nav-scroll">Let's connect</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO SECTION (static, no interaction) ============ -->
+<section class="hero">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Hello I'm Divya</p>
+    <h1 class="hero-title">I Learn. I Build. I Iterate.</h1>
+    <p class="hero-subtitle">exploring intelligent systems and building along the way</p>
+    <span class="hero-badge">AI/ML enthusiast</span>
+  </div>
+  <div class="hero-portrait">
+    <img src="assets/img/hero_image.png" alt="Divya's Profile Photo" class="portrait-image">
+    <div class="portrait-glow" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ============ MAJOR PROJECTS (stacking cards) ============ -->
+<section class="major-projects" id="major-projects">
+  <div class="section-heading">
+    <span class="section-badge">Major Projects</span>
+  </div>
+
+  <div class="stack-container" id="stackContainer">
+
+    <article class="stack-card card-light" style="z-index:1;">
+      <div class="stack-card-inner">
+        <div class="stack-card-media">
+         <img src="assets\img\ai_agent.png" alt="AI agent image" class="stack-card-image">
+        </div>
+        <div class="stack-card-body">
+          <h3>Agentic Research Intelligence System</h3>
+          <p>A production-grade agentic AI system built on LangGraph that decomposes natural language research queries into dependency-aware parallel subtasks, executes them across heterogeneous tools and synthesizes citation-grounded reports through an iterative critic-reflection loop.</p>
+          <ul class="tag-list">
+             <li><span class="tick">✓</span>Multi-tool</li>
+            <li><span class="tick">✓</span>Persistent</li>
+            <li><span class="tick">✓</span>Error handling</li>
+          </ul>
+          <!-- TODO: replace href with real project page once built -->
+          <a href="agentic-research.html" target="_blank" rel="noopener" class="btn btn-orange">View complete project →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="stack-card card-orange" style="z-index:2;">
+      <div class="stack-card-inner">
+        <div class="stack-card-media">
+          <img src="assets\img\Rag_image1.png" alt="ZX Bank Document Intelligence Screenshot" class="stack-card-image">
+        </div>
+        <div class="stack-card-body">
+          <h3>ZX Bank Document Intelligence — Hybrid Retrieval RAG System</h3>
+          <p>Production-grade Hybrid RAG platform: BM25S + dense retrieval fused via RRF, cross-encoder reranking, LangGraph guardrails (hallucination, PII, topic-boundary), citation-grounded answers. Built on FastAPI, Celery, Redis, Qdrant.</p>
+          <ul class="tag-list">
+            <li><span class="tick">✓</span>Guardrails</li>
+            <li><span class="tick">✓</span>Celery</li>
+            <li><span class="tick">✓</span>One-time chat model</li>
+          </ul>
+          <!-- TODO: replace href with real project page once built -->
+          <a href="zx-bank.html" target="_blank" rel="noopener" class="btn btn-dark">View complete project →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="stack-card card-black" style="z-index:3;">
+      <div class="stack-card-inner">
+        <div class="stack-card-media">
+          <!-- REPLACE WITH: assets/img/ml-project.png -->
+          <div class="img-placeholder" data-label="Machine Learning Project Screenshot"></div>
+        </div>
+        <div class="stack-card-body">
+          <h3>Machine Learning Project Here..</h3>
+          <p>A production-grade agentic AI system built on LangGraph that decomposes natural language research queries into dependency-aware parallel subtasks, executes them across heterogeneous tools and synthesizes citation-grounded reports through an iterative critic-reflection loop.</p>
+          <ul class="tag-list">
+             <li><span class="tick">✓</span>Accuracy</li>
+            <li><span class="tick">✓</span>Model use</li>
+            <li><span class="tick">✓</span>Grounded</li>
+          </ul>
+          <!-- TODO: replace href with real project page once built -->
+          <a href="https://claude.ai" target="_blank" rel="noopener" class="btn btn-orange">View complete project →</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ MINOR PROJECTS (infinite marquee) ============ -->
+<section class="minor-projects" id="minor-projects">
+  <div class="section-heading">
+    <span class="section-badge section-badge-dark">Minor Projects</span>
+  </div>
+
+  <div class="marquee" id="minorMarquee">
+    <div class="marquee-track" id="minorTrack">
+
+      <article class="mini-card">
+        <div class="mini-card-media">
+         <img src = "assets\img\flappybird.png" data-label="Flappy bird DNQ">
+        </div>
+        <div class="mini-card-body">
+          <h4>Flappy Bird Using DQN</h4>
+          <p>The agent learns optimal actions through interaction with the environment and reward-based feedback.</p>
+          <div class="mini-card-actions">
+            <a href="https://github.com/divya626343-ctrl/flappy-bird-dqn" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Github link →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="mini-card-media">
+          <img src="assets\img\resumematcher.png" data-label="Resume-match-UI">
+        </div>
+        <div class="mini-card-body">
+          <h4>ResuMatch – AI Powered Resume Match</h4>
+          <p>AI-powered resume ranking using semantic similarity. Upload multiple resumes against a job description and get them ranked by relevance.</p>
+          <div class="mini-card-actions">
+            <a href="https://github.com/divya626343-ctrl/RESUME-JOBDESCRIPTION-MATCHER" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Github link →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="mini-card-media mini-card-media-flat">
+         <img src="assets\img\robospeak.png" data-label = "Robospeak">
+        </div>
+        <div class="mini-card-body">
+          <h4>My First API Call – RoboSpeak</h4>
+          <p>Uses an API call to tell the current weather of any area by providing the name.</p>
+          <div class="mini-card-actions">
+            <a href="https://github.com/divya626343-ctrl/robospeaker" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Github link →</a>
+          </div>
+        </div>
+      </article>
+
+      
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK (infinite marquee, no hover) ============ -->
+<section class="tech-stack">
+  <h2 class="section-title-light">Tech Stack</h2>
+  <div class="marquee marquee-plain" id="techMarquee">
+    <div class="marquee-track" id="techTrack">
+      <span class="tech-pill">LangChain</span>
+      <span class="tech-pill">Hugging Face</span>
+      <span class="tech-pill">Large Language Models</span>
+      <span class="tech-pill">PyTorch</span>
+      <span class="tech-pill">LangGraph</span>
+      <span class="tech-pill">Docker</span>
+      <span class="tech-pill">FastAPI</span>
+      <span class="tech-pill">Qdrant</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGINEERING INTO PRACTICE (static) ============ -->
+<section class="engineering">
+  <h2 class="section-title-light">Engineering into Practice</h2>
+  <div class="engineering-grid">
+    <article class="engineering-card">
+      <div class="engineering-media">
+       <img src="assets\img\engineering.jpeg" data-label="handwritten system flow of rag">
+      </div>
+      <p class="engineering-caption">How I designed the system behind <span class="highlight">(ZX Bank Rag System)</span></p>
+      <!-- TODO: replace href with real project write-up link -->
+      <a href="https://claude.ai" target="_blank" rel="noopener" class="btn btn-orange btn-sm">View complete project →</a>
+    </article>
+
+    <article class="engineering-card">
+      <div class="engineering-media">
+        <img src="assets\img\failtosuccess.png" data-label="failing in first ai agent">
+      </div>
+      <p class="engineering-caption">Failing successfully in creation of my first agent — here are some lessons I picked up</p>
+      <!-- TODO: replace with real LinkedIn post link -->
+      <a href="https://lnkd.in/p/dRu3aE6P" target="_blank" rel="noopener" class="btn btn-orange btn-sm">View on LinkedIn →</a>
+    </article>
+  </div>
+</section>
+
+<!-- ============ BEYOND CODE (parallax) ============ -->
+<section class="beyond-code" id="beyond-code" data-parallax-speed="0.1">
+  <div class="parallax-bg" id="parallaxBg" aria-hidden="true"></div>
+  <div class="beyond-code-content">
+    <div class="section-heading">
+      <span class="section-badge">Beyond Coding</span>
+    </div>
+    <p class="beyond-code-intro">My experience in UI/UX design has taught me to think about users, interfaces, and the bigger picture behind a technical solution. Here are some of my design snapshots</p>
+
+  <div class="beyond-grid">
+
+  <div class="beyond-col beyond-col-left">
+    <div class="beyond-item beyond-item-hero" data-parallax-speed="0.06">
+     <img src="assets\img\travelui.png" alt="">
+    </div>
+    <div class="beyond-row">
+      <div class="beyond-item beyond-item-dest" data-parallax-speed="-0.04">
+        <img src="assets\img\udaan.webp" alt="">
+      </div>
+      <div class="beyond-item beyond-item-weather" data-parallax-speed="0.05">
+        <img src="assets\img\cloud.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="beyond-col beyond-col-right">
+    <span class="cert-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L21 9.27l-4.5 4.38L17.8 21 12 17.77 6.2 21l1.3-7.35L3 9.27l6.1-1.01L12 2z"/></svg>
+    </span>
+    <div class="beyond-item beyond-item-cert" data-parallax-speed="-0.05">
+      <img src="assets\img\uxintership.jpeg" data-label ="ui ux intership ceritficate">
+      <p class="beyond-item-text">At Mozek Company I interned as a UI/UX Designer for 3 months where I learned a lot about the user perspective and worked on multiple design areas such as portal design, app design, watch design, and more.</p>
+      <!-- TODO: replace with real certificate link/PDF -->
+      <a href="https://lnkd.in/p/dxWvw84a" target="_blank" rel="noopener" class="btn btn-orange btn-sm">View the certificate →</a>
+    </div>
+    <div class="beyond-item beyond-item-fund" data-parallax-speed="0.04">
+      <img src="assets\img\fundnest1.webp" alt="">
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ============ LET'S CONNECT ============ -->
+<section class="connect" id="connect">
+  <div class="connect-blur-row" aria-hidden="true">
+    <div class="blur-tile"></div><div class="blur-tile"></div><div class="blur-tile"></div><div class="blur-tile"></div>
+  </div>
+  <div class="connect-content">
+    <h2 class="connect-title">Let's <span class="highlight-orange">Connect!</span></h2>
+    <p class="connect-subtitle">Always open to interesting conversations, ideas, and opportunities to learn.</p>
+
+    <div class="connect-links">
+      <button class="connect-link" id="copyEmailBtn" type="button" data-email="divya.designanddev@gmail.com">
+        <svg class="connect-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6.5h18v11H3z"/><path d="M3 6.5l9 7 9-7"/></svg>
+        <span id="emailText">divya.designanddev@gmail.com</span>
+        <span class="copy-tooltip" id="copyTooltip">Copied!</span>
+      </button>
+
+      <a href="https://www.linkedin.com/in/divya-gupta-a05b24400/" target="_blank" rel="noopener" class="connect-link">
+        <svg class="connect-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg>
+        <span>Divya Gupta</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Research Intelligence System — Divya Gupta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="project-page">
+
+<div class="project-back-bar">
+  <a href="index.html" class="project-back">← Back</a>
+</div>
+
+<!-- ============ PROJECT HERO ============ -->
+<section class="project-hero">
+  <div class="project-hero-text">
+    <h1>Agentic Research Intelligence System</h1>
+    <p>This research agent takes any natural language research question, autonomously breaks it down into focused subtasks, and executes them across multiple tools — searching the web, querying databases, reading documents, and running calculations — all in parallel. It then synthesizes everything into a single report with inline citations, evaluates its own output, and fills any gaps before delivering the final answer. No hallucinations, no manual intervention.</p>
+    <ul class="project-meta">
+      <li><span class="dot"></span>Role - AI/ML Backend</li>
+      <li><span class="dot"></span>Status - Learning Project</li>
+    </ul>
+    <a href="https://github.com/divya626343-ctrl/Research-Agent" target="_blank" rel="noopener" class="btn btn-orange">Github Link →</a>
+  </div>
+  <div class="project-hero-media">
+     <video class="video-el" controls playsinline>
+      <source src="assets\video\agentic-ai.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / SOLUTION ============ -->
+<section class="project-two-col">
+  <div>
+    <h2>Problem Statement</h2>
+    <p>Tech Professionals generally have disconnected sources of information — internal databases (sales, ops data), internal documents (reports, policies, contracts), and the open web (market context, competitor info).</p>
+    <p>For getting correct information they have to go through manually querying the database, digging through shared drives, and searching separately online, then stitching it all together by hand.</p>
+    <p>That is time consuming and can not be verified quickly — for that they have to go through the same hassle again.</p>
+  </div>
+  <div>
+    <h2>Proposed Solution</h2>
+    <p>An autonomous agent that turns one question into one answer — across every source you have.</p>
+    <ul>
+      <li>Ask once, in plain language</li>
+      <li>The agent plans, pulls from your database, your documents, the web, and runs computation where needed — in parallel</li>
+      <li>Comes back with a single cited, structured report — not five tabs to cross-reference yourself</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="project-features">
+  <div class="section-heading">
+    <span class="section-badge section-badge-dark">Features</span>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Natural-language query in, structured report out — no need to know which system holds the answer or how to phrase a query for each one</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>DB-agnostic SQL executor — runs against Northwind locally today, swappable to Postgres (or any SQL DB) via config, no agent-logic changes required</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Long-term memory (Chroma) — past research sessions are embedded and semantically searchable, so returning users can retrieve prior answers</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Cited, structured output — PDF, with inline citations tied back to source, not an unattributed wall of text</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Full Observability — Every node appends a structured trace entry with start time, completion time and node-specific detail</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Multiple Tool Integration — Four specialized tools: live web search, SQL query execution, document retrieval and sandbox for python code</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙</span>
+      <p>Fault Tolerant by Design — Tool failures never crash the agent. Web search falls back to DuckDuckGo. Memory failures are silently logged.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARCHITECTURE ============ -->
+<section class="project-two-col">
+  <div>
+    <h2>Architecture</h2>
+    <p><strong>Request enters the router through the FastAPI layer.</strong><br>Routers only route, services hold the logic, models define the schema — separation of concerns, so the endpoint function itself stays thin. A job ID is returned immediately; the graph runs as a background task, not blocking the request.</p>
+    <p><strong>Memory checked first — Chroma as the entry point.</strong><br>Before the graph does any reasoning, it checks Chroma for relevant sessions and chunks.</p>
+    <p><strong>Planner decomposes — the only node that decides, not fetches.</strong><br>The planner breaks the enriched question into 3–8 sub-tasks.</p>
+    <p><strong>Fan-out — parallel execution across a config-driven tool layer.</strong><br>Sub-tasks dispatch simultaneously to: SQL executor, PDF retriever, web search, and code interpreter (E2B sandbox).</p>
+    <p><strong>Synthesizer merges results into one draft.</strong><br>Structured rows, document excerpts, web snippets, and computed values are merged into a single answer.</p>
+    <p><strong>Formatter finalizes, trace_writer logs it — two parallel outputs, two stores.</strong><br>The approved draft becomes a Markdown + PDF report with citations, going to the user.</p>
+    <p><strong>Memory written back — closing the loop, three stores staying independent.</strong></p>
+  </div>
+  <div class="architecture-media">
+    <img src="assets\img\agentic-research.jpg" data-label="system architecture diagram">
+  </div>
+</section>
+
+<!-- ============ DATABASE DECISION / TESTING STRATEGY ============ -->
+<section class="project-two-col">
+  <div>
+    <h2>Database Decision</h2>
+    <p>Three stores, three jobs — deliberately not one shared database.</p>
+    <ul>
+      <li>SQLite — job/run state (what's the status of this request right now)</li>
+      <li>Chroma — long-term memory (embedded past sessions, searched semantically)</li>
+      <li>Database - Northwind for local test, can change to Postgres database</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Testing Strategy</h2>
+    <p><strong>Tool-level:</strong> each tool (SQL executor, PDF retriever, web search, code interpreter) tested in isolation.</p>
+    <p><strong>Node-level:</strong> each LangGraph node tested with a fixed input state — does the planner produce sensible sub-tasks, does the critic correctly flag a bad draft — without running the whole graph end-to-end.</p>
+    <p><strong>Graph-compilation level:</strong> the full graph tested as a compiled whole.</p>
+  </div>
+</section>
+
+<!-- ============ ADDITIONAL VIDEO + IMPROVEMENTS ============ -->
+<section class="project-two-col">
+  <div class="project-hero-media">
+    
+    <video class="video-el" controls playsinline>
+      <source src="assets\video\video6.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div>
+    <h2>Improvements to make</h2>
+
+    <div class="improvement-block">
+      <h3>Move from polling to streaming</h3>
+      <p>Right now the client polls /status/[job_id] — functional, but the user watches a "processing" state with no visibility into which node is running. Since the graph already has 9 named steps, streaming progress ("planning done → gathering → critiquing") would make the UX and the architecture finally match — the info exists, it's just not surfaced live.</p>
+    </div>
+
+    <div class="improvement-block">
+      <h3>Human-in-the-loop at genuine decision points</h3>
+      <p>It's a real gap: right now the agent proceeds fully autonomously even when a sub-task is ambiguous (e.g., which time period "recent" means). A lightweight pause-and-confirm at one or two clear ambiguity points would meaningfully raise trust without rebuilding the graph.</p>
+    </div>
+
+    <div class="improvement-block">
+      <h3>Rate limit handling</h3>
+      <p>Right now the model does not handle rate limit hits or exhausted tokens, as we are using Groq for providing the model — so addressing that is critical if the project goes live.</p>
+    </div>
+  </div>
+</section>
+<section class="project-thanks">
+  <h2>Thanks for reading!</h2>
+</section>
+
+</body>
+</html>
