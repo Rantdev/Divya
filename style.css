@@ -328,7 +328,21 @@ p{ margin:0; }
    TECH STACK — infinite marquee (no hover interaction)
 ========================================================= */
 .tech-stack{ background:var(--bg-black); padding:60px 0 90px; }
-.marquee-plain .marquee-track{ animation-duration:22s; gap:18px; padding:0; }
+.marquee-plain .marquee-track{
+  animation:tech-scroll 22s linear infinite;
+  gap:18px;
+  padding:0;
+}
+
+@keyframes tech-scroll{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(var(--tech-scroll-distance));
+  }
+}
 .tech-pill{
   flex:0 0 auto;
   padding:14px 30px;
