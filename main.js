@@ -82,16 +82,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ============ MINOR PROJECTS MARQUEE — clone + pause on hover ============ */
-  const minorMarquee = document.getElementById('minorMarquee');
-  const minorTrack = document.getElementById('minorTrack');
-  if (minorTrack){
-    // duplicate the cards so the loop is seamless
-    minorTrack.innerHTML += minorTrack.innerHTML;
+const minorMarquee = document.getElementById('minorMarquee');
+const minorTrack = document.getElementById('minorTrack');
 
-    minorMarquee.addEventListener('mouseenter', () => minorTrack.classList.add('paused'));
-    minorMarquee.addEventListener('mouseleave', () => minorTrack.classList.remove('paused'));
-    // touch devices: tap pauses briefly via focus/hover fallback already covered by CSS :hover
-  }
+if (minorTrack) {
+  const originalCards = Array.from(minorTrack.children);
+
+  originalCards.forEach(card => {
+    minorTrack.appendChild(card.cloneNode(true));
+  });
+
+  const firstSetWidth =
+    originalCards.reduce((total, card) => {
+      return total + card.getBoundingClientRect().width;
+    }, 0)
+    + (originalCards.length - 1) * 26;
+
+  minorTrack.style.setProperty('--scroll-distance', `-${firstSetWidth}px`);
+
+  minorMarquee.addEventListener('mouseenter', () => {
+    minorTrack.classList.add('paused');
+  });
+
+  minorMarquee.addEventListener('mouseleave', () => {
+    minorTrack.classList.remove('paused');
+  });
+}
 
   /* ============ TECH STACK MARQUEE — clone only, always running ============ */
   const techTrack = document.getElementById('techTrack');
