@@ -110,10 +110,28 @@ if (minorTrack) {
 }
 
   /* ============ TECH STACK MARQUEE — clone only, always running ============ */
-  const techTrack = document.getElementById('techTrack');
-  if (techTrack){
-    techTrack.innerHTML += techTrack.innerHTML;
-  }
+const techTrack = document.getElementById('techTrack');
+
+if (techTrack) {
+  const originalItems = Array.from(techTrack.children);
+
+  originalItems.forEach(item => {
+    techTrack.appendChild(item.cloneNode(true));
+  });
+
+  const gap = 18;
+
+  const originalWidth =
+    originalItems.reduce((total, item) => {
+      return total + item.getBoundingClientRect().width;
+    }, 0) +
+    gap * (originalItems.length - 1);
+
+  techTrack.style.setProperty(
+    '--tech-scroll-distance',
+    `-${originalWidth}px`
+  );
+}
 
   /* ============ BEYOND CODE — PARALLAX ============ */
   const parallaxBg = document.getElementById('parallaxBg');
