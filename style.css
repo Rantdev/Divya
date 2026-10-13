@@ -673,6 +673,11 @@ p{ margin:0; }
 .improvement-block:last-child{ margin-bottom:0; }
 .improvement-block h3{ font-size:1rem; font-weight:700; margin-bottom:8px; color:var(--text-cream); }
 .improvement-block p{ margin-bottom:0; }
+
+.project-single-col{ max-width:900px; margin:0 auto; padding:64px 32px; }
+.project-single-col h2{ font-size:1.4rem; font-weight:700; margin-bottom:16px; }
+.project-single-col p{ color:var(--text-cream-muted); line-height:1.85; font-size:.95rem; }
+.project-single-col strong{ color:var(--text-cream); font-weight:700; }
  
 .project-thanks{ text-align:center; padding:90px 32px 120px; }
 .project-thanks h2{ font-size:1.6rem; font-weight:700; }
