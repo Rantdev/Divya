@@ -12,7 +12,7 @@
 <body class="project-page">
 
 <div class="project-back-bar">
-  <a href="index.html" class="project-back-logo">Divya Gupta</a>
+ <a href="index.html" class="project-back">← Back</a>
 </div>
 
 <!-- ============ PROJECT HERO (description left, video right) ============ -->
@@ -38,7 +38,9 @@
   <h2>The three components</h2>
   <p>
     <strong>RAG(Qdrant + fastembed) —</strong>The knowledge layer. Company documents are loaded, split into chunks, embedded with fastembed and stored in Qdrant. The agent has a single retrieval tool and answers only from what it returns, and says so when it doesn’t know. The pipeline uses abstract contracts for the embedder and vector store, plus stable chunk IDs, so re-ingesting a file replaces its chunks instead of duplicating them.
+    <br>
     <strong>LiveKit (real-time voice)—</strong> The conversation layer. LiveKit provides the WebRTC rooms and runs the Python agent. Speech-to-text, the LLM (Groq) and text-to-speech are chained with streaming, and turn detection and interruption handling make the conversation feel natural. A React frontend shows the video on the left and the live transcript on the right.
+    <br>
     <strong>Beyond Presence (3D avatar) —</strong> The presentation layer. The avatar joins the same room as another participant, receives the agent’s speech and publishes lip-synced video. It is switched on or off with one setting and requires no frontend changes.
   </p>
 </section>
