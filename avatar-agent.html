@@ -19,31 +19,27 @@
 <section class="project-hero">
   <div class="project-hero-text">
     <h1>3D Avatar Agent</h1>
-    <p>Placeholder description — replace this with a brief summary of your 3D avatar agent: what it does, who it is for, and how users interact with it.</p>
+    <p>A real-time voice customer support agent you talk to in the browser. It answers questions from a company’s own documents, so replies are grounded in real policies rather than generic model knowledge. Customers can interrupt it mid-sentence, as on a phone call. An optional 3D avatar gives support a face, and without it the page shows a voice bubble that moves with the agent’s voice. The RAG pipeline is built as a reusable module, so the same code can serve a different business by swapping the documents and one config file.</p>
     <ul class="project-meta">
-      <li><span class="dot"></span>Role - Your role here</li>
-      <li><span class="dot"></span>Status - Your status here</li>
+      <li><span class="dot"></span>Role - complete backend</li>
+      <li><span class="dot"></span>Status - project</li>
     </ul>
     <!-- TODO: replace with real GitHub repo link -->
-    <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-orange">Github Link →</a>
+    <a href="https://github.com/divya626343-ctrl/3D-Avatar-Voice-Agent" target="_blank" rel="noopener" class="btn btn-orange">Github Link →</a>
   </div>
-  <div class="project-hero-media">
-    <!-- This is a VIDEO, not an image. REPLACE the line below with:
     <video class="video-el" autoplay muted loop playsinline poster="assets/img/avatar-agent-poster.jpg">
-      <source src="assets/video/avatar-agent-demo.mp4" type="video/mp4">
+      <source src="avatar-agent-demo.mp4" type="video/mp4">
     </video>
-    -->
-    <div class="img-placeholder video-placeholder" data-label="▶ Avatar Agent Demo Video"></div>
   </div>
 </section>
 
 <!-- ============ THREE MAJOR COMPONENTS (one paragraph) ============ -->
 <section class="project-single-col">
-  <h2>Major Components</h2>
+  <h2>The three components</h2>
   <p>
-    <strong>Component One —</strong> placeholder text describing the first major part of the system and the role it plays.
-    <strong>Component Two —</strong> placeholder text describing the second major part and how it connects to the first.
-    <strong>Component Three —</strong> placeholder text describing the third major part and how everything comes together.
+    <strong>RAG(Qdrant + fastembed) —</strong>The knowledge layer. Company documents are loaded, split into chunks, embedded with fastembed and stored in Qdrant. The agent has a single retrieval tool and answers only from what it returns, and says so when it doesn’t know. The pipeline uses abstract contracts for the embedder and vector store, plus stable chunk IDs, so re-ingesting a file replaces its chunks instead of duplicating them.
+    <strong>LiveKit (real-time voice)—</strong> The conversation layer. LiveKit provides the WebRTC rooms and runs the Python agent. Speech-to-text, the LLM (Groq) and text-to-speech are chained with streaming, and turn detection and interruption handling make the conversation feel natural. A React frontend shows the video on the left and the live transcript on the right.
+    <strong>Beyond Presence (3D avatar) —</strong> The presentation layer. The avatar joins the same room as another participant, receives the agent’s speech and publishes lip-synced video. It is switched on or off with one setting and requires no frontend changes.
   </p>
 </section>
 
