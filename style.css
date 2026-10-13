@@ -590,6 +590,7 @@ p{ margin:0; }
 }
 @media (max-width:760px){
   .project-hero{ grid-template-columns:1fr; padding:36px 20px 60px; }
+  .project-single-col{ padding:44px 20px; }
   .project-two-col{ grid-template-columns:1fr; gap:36px; padding:44px 20px; }
   .architecture-media{ position:static; }
   .features-grid{ grid-template-columns:1fr; }
